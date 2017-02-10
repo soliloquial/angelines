@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>El Soundboard de Angelines</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<meta charset="UTF-8">
+<link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,700' rel='stylesheet' type='text/css'>
+<style type="text/css">
+*, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Text', serif;
+}
+#main {
+    width: 1000px;
+    margin: auto;
+    background: url(background2.png);
+    min-height: 1000px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 170px 50px 0 50px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    font-variant: small-caps;
+}
+h1 {
+    margin-bottom: -5px;
+}
+button {
+    padding: 5px;
+    border: none;
+    border-radius:12px;
+    font-size: 20px;
+    margin-bottom: 5px;
+
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+    var buttons = $("button");
+    var i = 97;
+    $.each(buttons, function(e) {
+        $(this).attr('title', String.fromCharCode(i));
+        i++;
+    });
+    $('button').click(function(e) {
+        var filename = $(this).attr('id') + ".ogg";
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', filename);
+        $.get();
+        audioElement.play();
+    });
+    $(document).keypress(function(e) {
+        var code = e.keyCode - 97;
+        $("button")[code].click()
+    });
+});
+</script>
+</head>
+<body>
+<div id="main">
+<h1>La vida cotidiana</h1>
+<button id="comida">¡Chicos, la comida!</button>
+<button id="manana">¿Qué tal la mañana, bien?</button>
+<button id="osgusta">¿Os gusta la comida?</button><br>
+<button id="descansar">Descansar o hacer lo que queráis</button>
+<button id="rafael">Rafael no come arroz con setas...</button>
+<h1>Expresiones</h1>
+<button id="expresionessonimportantes">Las expresiones son imporantes</button>
+<button id="polla2">Donde tengas la olla...</button><br>
+<button id="directamente">Son directamente de la huerta</button>
+<h1>Palabrotas</h1>
+<button id="cabron">¡Cabrón! ¿Dónde estabas?</button>
+<button id="eresuncabron">¡Eres un cabrón!</button>
+<button id="cac">Caca</button><br>
+<button id="cononomedigas">¡Coño, no me digas!</button>
+<button id="joder">¡Joder!</button>
+<button id="jodernomedigas">¡Joder, no me digas!</button><br>
+<button id="mecagoendios">Me cago en Dios</button>
+<button id="mecagoenlaleche2">Me cago en la leche</button>
+<button id="mierda">Mierda</button>
+<button id="quehijodeputaeres">¡Qué hijo de puta eres!</button>
+<h1>Miscelánea</h1>
+<button id="cough">[Tos]</button>
+<button id="grunt">[Grito]</button>
+<button id="risa">[Risa]</button>
+<button id="mmm">[Mmm...]</button>
+<button id="musica">[♫ ♪ ♫]</button>
+<button id="haha">[Ha ha]</button>
+<button id="oseaque">O sea que...</button>
+</div>
+</body>
+</html>
